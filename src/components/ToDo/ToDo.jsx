@@ -1,8 +1,18 @@
 import React, { Component } from "react";
 
+import Nav from '../Nav/Nav';
+
+
 class ToDo extends Component {
   render() {
-    return <div>ToDo</div>;
+    return (
+      <main>
+        <Nav/>
+        <div>
+          To Do List 
+        </div>
+      </main>
+    )
   }
 }
 

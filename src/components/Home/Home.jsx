@@ -1,10 +1,15 @@
 import React, { Component } from "react";
-import Nav from '../Nav/Nav';
+import { Link } from 'react-router-dom';
+
+
 
 class Home extends Component {
   render() {
     return (
-      <Nav/>
+      <div>
+        Welcome to Taskery
+        <button><Link to='/todo'> My ToDo´s</Link></button>
+      </div>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import Login from '../Login/Login';
 import Data from '../Data/Data';
@@ -10,16 +10,15 @@ import Home from '../Home/Home';
 class Main extends Component {
   render() {
     return (
-      <main>
-        <Switch>
-          <Route path='/' component={Home} exact />
-          <Route path='/data' component={Data} />
-          <Route path='/login' component={Login} />
-          <Route path='/todo' component={ToDo} />
+      <div>
+        <Routes>
+          <Route path='/' element={<Home />} exact />
+          <Route path='/login' element={<Login />} />
+          <Route path='/data' element={<Data />} />
+          <Route path='/todo' element={<ToDo />} />
           <Route component={Error} />
-        </Switch>
-        
-      </main>
+        </Routes>
+      </div>
     )
   }
 }
