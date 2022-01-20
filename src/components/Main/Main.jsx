@@ -7,6 +7,8 @@ import ToDo from '../ToDo/ToDo';
 import Error from '../Error/Error';
 import Home from '../Home/Home';
 
+// change component on the Route, now is element
+
 class Main extends Component {
   render() {
     return (

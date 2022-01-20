@@ -13,7 +13,7 @@ class Login extends Component {
             Enter your password:
           <input className="login-form" type="text" name="password" placeholder="Email..." />
           </label>
-          <input className="form--submit" type="submit" value="ADD" />
+          <input className="form--submit" type="submit" value="Log In" />
         </form>
       </section>
     )

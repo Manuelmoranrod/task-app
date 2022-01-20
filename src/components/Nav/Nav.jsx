@@ -6,8 +6,12 @@ class Nav extends Component {
   render() {
     return (
       <div>
-        <Link to="/todo"> Tasks</Link>
-        <Link to="/data"> My Data</Link>
+        <button>
+          <Link to="/todo"> Tasks</Link>
+        </button>
+        <button>
+          <Link to="/data"> My Data</Link>
+        </button>
         <button>Log Out</button>
       </div>
     )
