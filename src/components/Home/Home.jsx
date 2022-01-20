@@ -8,7 +8,7 @@ class Home extends Component {
     return (
       <div>
         Welcome to Taskery
-        <button><Link to='/todo'> My ToDo´s</Link></button>
+        <button><Link to='/login'> Log IN</Link></button>
       </div>
     );
   }
