@@ -10,8 +10,12 @@ class ToDo extends Component {
 
     this.state = {
       data: {},
-      tasks: [{title:"Fregar los platos",desc:"Con fairy",date:"23/09/2021"}],
-      done: {}
+      tasks: [
+        {title:"Fregar los platos",desc:"Con fairy",date:"23/09/2021",status: "in progress"},
+        {title:"Planchar",desc:"Con fairy",date:"23/09/2021",status: "completed"},
+        {title:"Barrer",desc:"Con fairy",date:"23/09/2021",status: "in progress"},
+        {title:"Recoger",desc:"Con fairy",date:"23/09/2021",status: "completed"}
+      ],
     }
   }
   // Add new task to de List & erase de inputs
@@ -20,10 +24,10 @@ class ToDo extends Component {
     const title = e.target.elements.title.value;
     const desc = e.target.elements.desc.value;
     const date = e.target.elements.date.value;
-
+    const status = "in progress"
 
     if (title && desc && date) {
-      const task = { title, desc, date }
+      const task = { title, desc, date, status }
       this.setState({ data: task })
 
       const newTask = task
@@ -34,12 +38,35 @@ class ToDo extends Component {
     e.target.elements.date.value = "";
   }
 
-  // Paint tasks Cards 
-  paintTasks = () => {
-    return this.state.tasks.map((task, i) => <Task info={task} key={i} done={() => this.moveToDone(i)} />)
+  // Paint all status tasks Cards,
+  paintAllTasks = () => {
+    console.log(this.state.tasks)
+    return this.state.tasks.map((task, i) => <Task info={task} key={i} done={() => this.moveToDone(i)} edit={() => this.editTask(i)}/>)
   }
-  // Delete one task of the TaskList by ID
+  // Paint only status: "in progress"
+  paintTasks = () => {
+    const fill = this.state.tasks.filter((task)=> task.status == "in progress")
+    console.log(fill)
+    return fill.map((task, i) => <Task info={task} key={i} done={() => this.moveToDone(i)} edit={() => this.editTask(i)}/>)
+    //const filteredData = this.state.tasks.filter((task, i) => task.status === "in progress"); 
+  }
+
+  //Fil de progress 
+  filtered = () => {
+    const fill = this.state.tasks.filter((task)=> task.status == "in progress")
+    console.log(fill)
+    return fill
+  }
+
+
+  // Change status => completed, by ID
   moveToDone = (i) => {
+    const newList = this.state.tasks.filter((curr, x) => x !== i)
+    console.log("La nueva lista:", newList);
+    this.setState({ tasks: newList })
+  }
+  // Edit the task, by ID
+  editTask = (i) => {
     const newList = this.state.tasks.filter((curr, x) => x !== i)
     console.log("La nueva lista:", newList);
     this.setState({ tasks: newList })
@@ -69,7 +96,7 @@ class ToDo extends Component {
           </label><br/>
           <input className="form--submit" type="submit" value="ADD"/>
         </form><br/>
-        <button onClick={this.resetTask}>All </button>
+        <button onClick={this.paintAllTasks}>All </button>
         
         </section>
         

@@ -12,7 +12,6 @@ class Task extends Component {
         <p>Status: {status}</p>
         <button onClick={this.props.done}>Done!</button>
         <button onClick={this.props.edit}>Edit</button>
-
       </section>
     )
   }
