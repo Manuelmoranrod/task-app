@@ -45,7 +45,7 @@ class ToDo extends Component {
   }
   // Paint only status: "in progress"
   paintTasks = () => {
-    const fill = this.state.tasks.filter((task)=> task.status == "in progress")
+    const fill = this.state.tasks.filter((task)=> task.status === "in progress")
     console.log(fill)
     return fill.map((task, i) => <Task info={task} key={i} done={() => this.moveToDone(i)} edit={() => this.editTask(i)}/>)
     //const filteredData = this.state.tasks.filter((task, i) => task.status === "in progress"); 
@@ -53,7 +53,7 @@ class ToDo extends Component {
 
   //Fil de progress 
   filtered = () => {
-    const fill = this.state.tasks.filter((task)=> task.status == "in progress")
+    const fill = this.state.tasks.filter((task)=> task.status === "in progress")
     console.log(fill)
     return fill
   }
